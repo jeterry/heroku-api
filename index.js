@@ -7,18 +7,17 @@ const importData = require("./data.json")
 const number = 0
 
 app.post('/sum', (req, res) => {
-    console.log('Got body:', req.body);
-    number = req.body.number
-    res.sendStatus(200);
+    const number = req.body.number
+    res.send({
+        'number': number
+    });
 });
 
 app.get("/", (req, res) => {
     res.send("hello world")
 })
 
-app.get("/sum", (req, res) => {
-    res.send(number)
-})
+
 
 app.listen(port, () => {
     console.log(`Example app is listening on http//:localhost:${port}`)
