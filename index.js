@@ -4,10 +4,10 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 let port = process.env.PORT || 3000;
 const importData = require("./data.json")
-const number = 0
+var number = "0"
 
 app.post('/sum', (req, res) => {
-    const number = req.body.number
+    number = req.body.number
     console.log(number)
     res.send({
         'number': number
@@ -18,6 +18,9 @@ app.get("/", (req, res) => {
     res.send("hello world")
 })
 
+app.get("/sum", (req, res) => {
+    res.send(number)
+})
 
 
 app.listen(port, () => {
