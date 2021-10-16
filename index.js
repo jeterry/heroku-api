@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
     res.send("hello world")
 })
 
-app.get("/numbers", (req, res) => {
+app.get("/sum", (req, res) => {
     res.send(importData)
 })
 
