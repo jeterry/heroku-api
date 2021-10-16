@@ -7,7 +7,7 @@ const importData = require("./data.json")
 var number = "0"
 
 app.post('/sum', (req, res) => {
-    number = req.body
+    number = req.body.number
 });
 
 app.get("/", (req, res) => {
