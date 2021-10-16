@@ -8,6 +8,7 @@ const number = 0
 
 app.post('/sum', (req, res) => {
     const number = req.body.number
+    console.log(number)
     res.send({
         'number': number
     });
