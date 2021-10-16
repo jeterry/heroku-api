@@ -4,7 +4,7 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 let port = process.env.PORT || 3000;
 const importData = require("./data.json")
-var number = 0
+const number = 0
 
 app.post('/sum', (req, res) => {
     console.log('Got body:', req.body);
