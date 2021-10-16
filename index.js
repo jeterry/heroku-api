@@ -7,7 +7,6 @@ const importData = require("./data.json")
 
 app.post('/sum', (req, res) => {
     console.log('Got body:', req.body);
-    const num = req.body;
     res.sendStatus(200);
 });
 
@@ -16,7 +15,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/sum", (req, res) => {
-    res.send(num)
+    res.send(importData)
 })
 
 app.listen(port, () => {
