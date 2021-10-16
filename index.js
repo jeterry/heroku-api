@@ -7,11 +7,15 @@ const importData = require("./data.json")
 
 app.post('/sum', (req, res) => {
     console.log('Got body:', req.body);
-    res.send(req.body);
+    res.sendStatus(200);
 });
 
 app.get("/", (req, res) => {
     res.send("hello world")
+})
+
+app.get("/sum", (req, res) => {
+    res.send(req.body)
 })
 
 app.listen(port, () => {
