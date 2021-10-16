@@ -8,6 +8,7 @@ var number = "0"
 
 app.post('/sum', (req, res) => {
     number = req.body.number
+    res.sendStatus(200)
 });
 
 app.get("/", (req, res) => {
