@@ -1,9 +1,9 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'me',
-  host: 'localhost',
-  database: 'numtracker',
-  password: 'password',
+  user: 'nvvurgjxtsozci',
+  host: 'ec2-54-159-35-35.compute-1.amazonaws.com',
+  database: 'dd3no12mrhnt3m',
+  password: '666311f048ac1b3b7de9dfa962b655b4a18298c83b165f4180d34aae8dc642f1',
   port: 5432,
 })
 const getSum = (request, response) => {
