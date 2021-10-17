@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/jeterry/heroku-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
   },
   "engines": {
     "node": "16.11.1"

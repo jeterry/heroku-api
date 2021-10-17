@@ -3,22 +3,15 @@ const express = require("express");
 const app = express();
 app.use(express.urlencoded({extended:true}));
 let port = process.env.PORT || 3000;
-const importData = require("./data.json")
-var number = "0"
-
-app.post('/sum', (req, res) => {
-    number = req.body.number
-    res.sendStatus(200)
-});
+const db = require('./queries')
 
 app.get("/", (req, res) => {
     res.send("hello world")
 })
 
-app.get("/sum", (req, res) => {
-    res.send(number)
-})
-
+app.get('/sum', db.getSum)
+app.post('/sum', db.updateSum)
+app.put('/sum', db.getSum)
 
 app.listen(port, () => {
     console.log(`Example app is listening on http//:localhost:${port}`)
