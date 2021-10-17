@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 app.use(express.urlencoded({extended:true}));
-let port = process.env.PORT || 3000;
+let port = process.env.PORT;
 const db = require('./queries')
 
 app.get("/", (req, res) => {
