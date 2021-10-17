@@ -10,11 +10,9 @@ const pool = new Pool ({
    ssl: true
 });
 
-
-app.get('/', function(req, res){
-    res.render('index', {title: 'Express'});
- });
- 
+pp.get("/", (req, res) => {
+    res.render('index', {title: 'Express'})
+})
 
 app.listen(port, () => {
     console.log(`Example app is listening on http//:localhost:${port}`)
