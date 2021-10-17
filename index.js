@@ -11,7 +11,7 @@ const pool = new Pool ({
 });
 
 app.get("/", (req, res) => {
-    res.send('index', {title: 'Express'})
+    res.send('index')
 })
 
 app.listen(port, () => {
