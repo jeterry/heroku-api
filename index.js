@@ -10,7 +10,7 @@ const pool = new Pool ({
    ssl: true
 });
 
-pp.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.render('index', {title: 'Express'})
 })
 
