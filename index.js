@@ -1,4 +1,3 @@
-const { Router, query } = require("express");
 const express = require("express");
 const app = express();
 app.use(express.urlencoded({extended:true}));
@@ -9,7 +8,7 @@ const pool = new Pool ({
     ssl: true
 });
 
-app.get('/', function(req, res, next){
+app.get('/', function(req, res){
     res.render('index', {title: 'Express'});
 });
 
