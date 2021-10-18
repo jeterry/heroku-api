@@ -15,11 +15,11 @@ const getSum = (request, response) => {
 
 const updateSum = (request, response) => {
     if (request.body.number == undefined){
-      response.status(200).send(`The number field was not found in request.`)
+      response.error(200).send(`Error: The number field was not found in request.`)
     }
     else {
       if (isNaN(parseInt(request.body.number))){
-        response.status(200).send(`The number variable was not of an integer type.`)
+        response.error(422).send(`Error: The number variable was not of an integer type.`)
       }
       else {
         pool.query(
@@ -29,7 +29,7 @@ const updateSum = (request, response) => {
             if (error) {
                 throw error
             }
-            response.status(200).send(`The sum was successfully updated. The type of number was ${typeof request.body.number}`)
+            response.status(200).send(`The sum was successfully updated.`)
             }
         )
       }
