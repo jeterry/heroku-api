@@ -14,8 +14,9 @@ const getSum = (request, response) => {
   }
 
 const updateSum = (request, response) => {
-console.log(request.body)
-console.log(request.body.number)
+    if (request.body.number == undefined){
+      response.status(200).send(`Number field was not found.`)
+    }
     pool.query(
         'UPDATE numtracker SET sum=CASE WHEN sum is NULL THEN $1 ELSE sum + $1 END',
         [request.body.number],
@@ -23,7 +24,7 @@ console.log(request.body.number)
         if (error) {
             throw error
         }
-        response.status(200).send(`The sum was successfully updated.`)
+        response.status(200).send(`The sum was successfully updated. The type of number was ${typeof request.body.number}`)
         }
     )
 }
