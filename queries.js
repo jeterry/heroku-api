@@ -1,11 +1,9 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'me',
-  host: 'localhost',
-  database: 'numtracker',
-  password: 'password',
-  port: 3000,
-})
+const {Pool} = require('pg');
+const pool = new Pool ({
+   connectionString: process.env.DATABASE_URL,
+   ssl: {rejectUnauthorized: false}
+});
+
 const getSum = (request, response) => {
     pool.query('SELECT * FROM numtracker', (error, results) => {
       if (error) {
