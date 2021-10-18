@@ -23,7 +23,7 @@ const updateSum = (request, response) => {
       }
       else {
         pool.query(
-            'UPDATE numtracker SET sum=CASE WHEN sum is NULL THEN $1 ELSE sum + $1 RETURNING * INTO $2; END',
+            'UPDATE numtracker SET sum + $1 RETURNING * INTO $2',
             [request.body.number],
             (error, results) => {
             if (error) {
