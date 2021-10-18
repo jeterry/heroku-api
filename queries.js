@@ -29,7 +29,7 @@ const updateSum = (request, response) => {
             if (error) {
                 throw error
             }
-            response.status(200).json(results.rows[0].sum)
+            response.status(200).send(`The sum was successfully updated.`)
             }
         )
       }
