@@ -15,20 +15,25 @@ const getSum = (request, response) => {
 
 const updateSum = (request, response) => {
     if (request.body.number == undefined){
-      response.status(200).send(`Number field was not found.`)
+      response.status(200).send(`The number field was not found in request.`)
     }
     else {
-      pool.query(
-          'UPDATE numtracker SET sum=CASE WHEN sum is NULL THEN $1 ELSE sum + $1 END',
-          [request.body.number],
-          (error) => {
-          if (error) {
-              throw error
-          }
-          response.status(200).send(`The sum was successfully updated. The type of number was ${typeof request.body.number}`)
-          }
-      )
+      if (isNaN(request.body.number) == false){
+        response.status(200).send(`The number variable was not of an integer type.`)
       }
+      else {
+        pool.query(
+            'UPDATE numtracker SET sum=CASE WHEN sum is NULL THEN $1 ELSE sum + $1 END',
+            [request.body.number],
+            (error) => {
+            if (error) {
+                throw error
+            }
+            response.status(200).send(`The sum was successfully updated. The type of number was ${typeof request.body.number}`)
+            }
+        )
+      }
+    }
 }
   module.exports = {
     getSum,
