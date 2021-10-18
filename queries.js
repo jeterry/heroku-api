@@ -18,7 +18,7 @@ const updateSum = (request, response) => {
       response.status(200).send(`The number field was not found in request.`)
     }
     else {
-      if (isNaN(request.body.number) == false){
+      if (isNaN(parseInt(request.body.number)) == false){
         response.status(200).send(`The number variable was not of an integer type.`)
       }
       else {
