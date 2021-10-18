@@ -29,7 +29,7 @@ const updateSum = (request, response) => {
             if (error) {
                 throw error
             }
-            response.status(200).send(`The sum was successfully updated to ${results}.`)
+            response.status(200).send(`The sum was successfully updated to ${results.rows[0].sum}.`)
             }
         )
       }
