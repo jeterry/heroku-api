@@ -25,11 +25,11 @@ const updateSum = (request, response) => {
         pool.query(
             'UPDATE numtracker SET sum=CASE WHEN sum is NULL THEN $1 ELSE sum + $1 END',
             [request.body.number],
-            (error) => {
+            (error, results) => {
             if (error) {
                 throw error
             }
-            response.status(200).send(`The sum was successfully updated.`)
+            response.status(200).send(`The sum was successfully updated to ${results.rows[0].sum}`)
             }
         )
       }
